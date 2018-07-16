@@ -2,11 +2,13 @@ const express = require('express');
 const router  = express.Router();
 const ensureLogin = require("connect-ensure-login")
 const User = require("../models/User")
+const { sendMail } = require('../mailing/sendMail');
 
 /* GET home page */
 router.get('/', (req, res, next) => {
   res.render('index');
 });
+
 
 router.get("/home", ensureLogin.ensureLoggedIn("/auth/login"), (req, res) => {
   User.find({}).then( users => {
@@ -16,4 +18,6 @@ router.get("/home", ensureLogin.ensureLoggedIn("/auth/login"), (req, res) => {
     } else res.render("home");
   })
  });
+
+
 module.exports = router;

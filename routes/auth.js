@@ -2,6 +2,7 @@ const express = require("express");
 const passport = require('passport');
 const authRoutes = express.Router();
 const User = require("../models/User");
+const {sendMail} = require("../mailing/sendMail");
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
@@ -57,6 +58,7 @@ authRoutes.post("/signup", (req, res, next) => {
       if (err) {
         res.render("auth/signup", { message: "Something went wrong" });
       } else {
+        sendMail(email,{})
         res.redirect("/");
       }
     });

@@ -1,5 +1,7 @@
 const nodemailer = require('nodemailer');
-
+const dotenv = require('dotenv');
+dotenv.config();
+dotenv.config({path:"./.env.private"});
 
 const {GMAIL_USER, GMAIL_PASSWORD } = process.env;
 console.log(`Mail transport: ${GMAIL_USER} - ${GMAIL_PASSWORD}`);
