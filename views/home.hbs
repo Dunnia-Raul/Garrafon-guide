@@ -1,2 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGKIR1qG0f2w-2orTPffHRyXFTWkbbYp0"></script>
+</head>
+
 <h1>Vista principal</h1>
-<a href="/auth/logout">Logout</a>
+
+<body>
+    <script>
+        window.placesAux = {{{ placesAux }}};
+    </script>
+    <div id="map" style="height:500px"></div>
+    <script src='/javascripts/script.js'></script>
+    <a href="/auth/logout">Logout</a>
+
+</body>
+
+</html>
