@@ -1,12 +1,30 @@
 <h1>Userlist List</h1>
 <div class="Users">
   {{#each users}}
-    <h2>{{username}}</h2>
-    {{#if isAdmin}}
-    <span>
-    <a href="{{_id}}">Delete User</a>
-    </span>
-    {{/if}}
+  <h2>{{username}}</h2>
+  <span>
+    <a href="/delete/{{_id}}">Delete</a>
+  </span>
+  {{/each}}
+</div>
+
+<h1>List Bars</h1>
+<div class="Bars">
+  {{#each places}}
+  <h2>{{name}}</h2>
+  <span>
+    <a href="/delete/{{_id}}">Delete</a>
+  </span>
+  {{/each}}
+</div>
+
+<h1>List Drinks</h1>
+<div class="Drinks">
+  {{#each drinks}}
+  <h2>{{mark}}</h2>
+  <span>
+    <a href="/delete/{{_id}}">Delete</a>
+  </span>
   {{/each}}
   <br><br>
   <a href="/auth/logout">Logout</a>
