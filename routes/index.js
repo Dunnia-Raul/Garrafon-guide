@@ -45,5 +45,29 @@ router.get("/delete/:id", (req, res) => {
         })
     })
 })
+router.get("/bars/add",(req,res,next)=>{
+  res.render("add");
+})
 
+router.post("/bars/add", (req, res,next)=>{
+  const { name,zone,city,comments,capacity} =req.body;
+  new Places ({name,zone,city,comments,capacity})
+  .save()
+  .then (place=>{
+    console.log("añade")
+    res.redirect('/home')
+  });
+});
+
+/*****comment****/
+/*router.post("/add/comments/:id", (req, res,next)=>{
+  Places.findById(req.params.id)
+  .then( place => {
+    const newComment = {
+      comments
+    };
+    Comments.comments.push(newComment);
+  return place.save();
+  });
+});*/
 module.exports = router;
