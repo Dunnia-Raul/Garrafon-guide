@@ -5,6 +5,7 @@ const User = require("../models/User")
 const { sendMail } = require('../mailing/sendMail');
 const Drinks = require("../models/Drinks")
 const Places = require("../models/Places")
+const Comments = require("../models/Comments")
 
 /* GET home page */
 router.get('/', (req, res, next) => {
@@ -25,7 +26,11 @@ router.get("/home", ensureLogin.ensureLoggedIn("/auth/login"), (req, res) => {
           res.render("list", data);
         })
       })
-    } else res.render("home");
+    } else {
+      Places.find({}).then(places => {
+      res.render("home",{places})
+      });
+    };
 
   })
 });

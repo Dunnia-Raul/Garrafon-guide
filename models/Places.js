@@ -5,7 +5,7 @@ const placeSchema = new Schema({
     name: String,
     zone: String,
     city: String,
-    comments: String,
+
     capacity: { type: String, enum: ["small", "medium", "big"], default: "medium" }
 }, {
         timestamps: {

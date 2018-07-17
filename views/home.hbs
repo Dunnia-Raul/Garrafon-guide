@@ -20,3 +20,20 @@
 </body>
 
 </html>
+<a href="/auth/logout">Logout</a>
+<a href="/bars/add">Add new Bar</a>
+
+<h1>List Bars</h1>
+<div class="Bars">
+  {{#each places}}
+  <h2>{{name}}</h2>
+  <ul>
+    <li>{{zone}}</li> 
+    <li>{{city}}</li> 
+    <li>{{comments}}</li> 
+    <li>{{capacity}}</li> 
+  </ul>
+
+  <a href="/add/drinks">Add drinks</a><a href="/add/comments/{{_id}}">----Add Comments</a>
+  {{/each}}
+</div>
