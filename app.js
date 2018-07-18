@@ -77,7 +77,7 @@ app.use(flash());
 require('./passport')(app);
 
 app.use((req, res, next) => {
-  app.locals.title = 'Express - Generated with IronGenerator';
+  app.locals.title = 'GARRAFON GUIDE';
   app.locals.user = req.user;
   next();
 })

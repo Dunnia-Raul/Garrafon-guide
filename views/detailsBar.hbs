@@ -1,0 +1,32 @@
+<div class="detailsBar">
+    <div>
+        <h2>{{name}}</h2>
+        <p>{{zone}}</p>
+        <p>{{city}}</p>
+        <p>{{capacity}}</p>
+    </div>
+     <div>
+    {{#each comments}}
+    Lista comments
+    <li>{{creator.username}}</li>
+    <li>{{comments}}</li>
+    <img src="{{garrafon.photo}}" alt="" height="100"
+    width="100">
+    {{/each}}
+    </div>
+   <div>
+    {{!-- {{#each drinks}}
+    Bebidas
+    <li>{{photo}}</li>
+    {{/each}} --}}
+    </div>
+
+    <div>
+        mapa!!!
+    </div>
+    
+   
+    <a href="/comments/{{place._id}}/newComment">Add new comment</a>
+    <a href="/home">Principal</a>
+
+</div>

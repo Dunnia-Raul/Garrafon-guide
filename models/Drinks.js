@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const drinkSchema = new Schema({
     mark: String,
     type: String,
-    graduation: String
+    photo: String
 }, {
         timestamps: {
             createdAt: 'created_at',

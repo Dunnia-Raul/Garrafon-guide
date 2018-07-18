@@ -15,7 +15,7 @@ mongoose.connect(dbURL).then(() =>
     console.log(`Connected to db: ${dbURL}`));
 
 //User.collection.drop();
-console.log("entra");
+//console.log("entra");
 //Places.collection.drop();
 //Drinks.collection.drop();
 
@@ -26,23 +26,23 @@ User.create([
         username: "Kike",
         email: "Pesadico@gmail.com",
         password: bcrypt.hashSync("1234", salt),
-        date: new Date,
-        typeDrink: "ron",
-        city: "Zamora",
+        date: new Date("1989-06-04"),
+        typeDrink: "Ron",
+        city: "Zamora"
     },
     {
         username: "Diego",
         email: "Barbas@gmail.com",
         password: bcrypt.hashSync("1234", salt),
-        date: new Date,
-        typeDrink: "whisky",
+        date: new Date("1990-03-01"),
+        typeDrink: "Whisky",
         city: "Zaragoza"
     },
     {
         username: "Dunnia",
         email: "Dunnia@gmail.com",
         password: bcrypt.hashSync("1111", salt),
-        date: new Date,
+        date: new Date("2001-07-09"),
         typeDrink: "Ron",
         city: "Zamora",
         role: "admin"
@@ -54,7 +54,7 @@ Places.collection.drop();
 Places.create([
     {
         name: "New Garamond",
-        zone: "Chamberí",
+        zone: "Chamberi",
         city: "Madrid",
         capacity: "big",
         location:{
@@ -63,7 +63,7 @@ Places.create([
         }
     },
     {
-        name: "Vía Lactea",
+        name: "Via Lactea",
         zone: "Nuevos Ministerios",
         city: "Barcelona",
         capacity: "small",
@@ -74,20 +74,6 @@ Places.create([
     }
 ])
 
-Drinks.collection.drop();
-
-Drinks.create([
-    {
-        mark: "Absolut",
-        type: "Vodka",
-        graduation: "20%"
-    },
-    {
-        mark: "Habana",
-        type: "Ron",
-        graduation: "18%"
-    }
-])
 
 
     .then(() => {

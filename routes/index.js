@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const ensureLogin = require("connect-ensure-login")
+const {ensureLoggedIn, ensureLoggedOut} = require("connect-ensure-login")
 const User = require("../models/User")
 const { sendMail } = require('../mailing/sendMail');
 const Drinks = require("../models/Drinks")
@@ -13,7 +13,7 @@ router.get('/', (req, res, next) => {
 });
 
 
-router.get("/home", ensureLogin.ensureLoggedIn("/auth/login"), (req, res) => {
+router.get("/home",ensureLoggedIn("/auth/login"), (req, res) => {
   User.find({}).then(users => {
     if (req.user.role.includes("admin")) {
       Places.find({}).then(places => {
@@ -79,15 +79,53 @@ router.post("/bars/add", (req, res, next) => {
   })
 
 
-/*****comment****/
-/*router.post("/add/comments/:id", (req, res,next)=>{
+/*****details Bar****/
+router.get('/bars/:id', (req, res, next) => {
   Places.findById(req.params.id)
-  .then( place => {
-    const newComment = {
-      comments
-    };
-    Comments.comments.push(newComment);
-  return place.save();
-  });
-});*/
+    .then( (place) => {
+    Comments.find({place: req.params.id })
+    .populate("garrafon")
+    .populate("creator")
+    .then((comments)=>{
+      const data={
+        place,
+        comments
+      }
+      console.log(data.comments)
+      res.render('detailsBar', data); 
+    })
+    
+    })
+    .catch( (err) => {console.log(err)});
+});
+
+router.get("bars/:id/newComment", (req, res, next) => {
+ Places.findById(req.params.id)
+    .then((place) => {
+      res.render('newComment', {place});
+    });
+  
+});
+
+/*router.post("/bars/:id/newComment", (req, res, next) => {
+const {content}=req.body
+new Comment({content})
+.save()
+     .then((comment) => {
+       res.render('/newComment', {place});
+     });
+   
+ });*/
+
+//  Drinks.find()
+//       .then((drinks)=> {
+//       const data = {
+//         drinks,
+//         place    
+//       }
+//       res.render('detailsBar', data);
+ 
+
+
+
 module.exports = router;

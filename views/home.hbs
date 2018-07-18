@@ -8,32 +8,35 @@
 </head>
 
 <h1>Vista principal</h1>
+<header>
+  <a href="/auth/logout">Logout</a>
+<a href="/bars/add">Add new Bar</a>
+</header>
 
 <body>
-    <script>
-        window.placesAux = {{{ placesAux }}};
-    </script>
-    <a href="/auth/logout">Logout</a>
-    <a href="/bars/add">Add new Bar</a>
-
+  
     <h1>List Bars</h1>
     <div class="Bars">
         {{#each places}}
         <h2>{{name}}</h2>
         <ul>
+            <li>Imagen algun dia</li>
             <li>{{zone}}</li>
             <li>{{city}}</li>
+            {{#each commentes}}
             <li>{{comments}}</li>
+            {{/each}}
             <li>{{capacity}}</li>
+    
         </ul>
-
-        <a href="/add/drinks">Add drinks</a>
-        <a href="/add/comments/{{_id}}">----Add Comments</a>
+        <a href="/bars/{{_id}}">Details</a>
         {{/each}}
     </div>
-
+   
     <div id="map" style="height:500px"></div>
-
+    <script>
+        window.placesAux = {{{ places }}};
+    </script>
     <script src='/javascripts/script.js'></script>
 
 </body>
