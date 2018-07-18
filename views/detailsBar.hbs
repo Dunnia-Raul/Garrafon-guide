@@ -1,13 +1,14 @@
 <div class="detailsBar">
     <div>
-        <h2>{{name}}</h2>
-        <p>{{zone}}</p>
-        <p>{{city}}</p>
-        <p>{{capacity}}</p>
+        <h2>{{place.name}}</h2>
+        <p>{{pplace.zone}}</p>
+        <p>{{place.city}}</p>
+        <p>{{place.capacity}}</p>
     </div>
      <div>
+         <h3> Lista comments</h3>
     {{#each comments}}
-    Lista comments
+   
     <li>{{creator.username}}</li>
     <li>{{comments}}</li>
     <img src="{{garrafon.photo}}" alt="" height="100"
