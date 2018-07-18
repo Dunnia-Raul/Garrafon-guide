@@ -52,28 +52,17 @@ Places.create([
         name: "New Garamond",
         zone: "Chamberí",
         city: "Madrid",
-        capacity: "big"
+        capacity: "Big"
+        
     },
     {
         name: "Vía Lactea",
         zone: "Nuevos Ministerios",
         city: "Barcelona",
-        capacity: "small"
+        capacity: "Small"
     }
 ])
 
-Drinks.create([
-    {
-        mark: "Absolut",
-        type: "Vodka",
-        graduation: "20%"
-    },
-    {
-        mark: "Habana",
-        type: "Ron",
-        graduation: "18%"
-    }
-])
 
 
     .then(() => {

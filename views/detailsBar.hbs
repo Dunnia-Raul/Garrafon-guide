@@ -1,0 +1,24 @@
+<div class="detailsBar">
+    <div>
+        <h2>{{name}}</h2>
+    </div>
+     <div>
+    {{#each comments}}
+    Lista commnets
+    <li>{{creator}}</li>
+    <li>{{comment}}</li>
+    {{/each}}
+    </div>
+   <div>
+    {{#each drinks}}
+    Bebidas
+    <li>{{photo}}</li>
+    {{/each}}
+    </div>
+
+    <div>
+        mapa!!!
+    </div>
+    
+    <a href="/comments/{{_id}}">Add new comment</a>
+</div>

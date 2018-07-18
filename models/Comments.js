@@ -2,9 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const commentSchema = new Schema({
-    place: {type:Schema.Types.ObjectId, ref:'Places'},
-    user: {type:Schema.Types.ObjectId, ref:'Users'},
-    commnents: String
+    place: {type:Schema.Types.ObjectId, ref:'Place'},
+    creator: {type:Schema.Types.ObjectId, ref:'User'},
+    comments: String,
+    garrafon: [{type:Schema.Types.ObjectId, ref:'Drink'}]
 
 }, {
         timestamps: {
