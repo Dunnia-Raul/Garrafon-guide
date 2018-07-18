@@ -22,6 +22,18 @@ document.addEventListener('DOMContentLoaded', () => {
   //   title: "I'm here"
   // });
 
+
+  $(function(){
+        
+    var options = {
+      map: "#map",
+      location: "Madrid"
+    };
+    
+    $("#geocomplete").geocomplete(options);
+    
+  });
+
   
 
   $.log = function(message){
