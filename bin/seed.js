@@ -19,6 +19,8 @@ console.log("entra");
 //Places.collection.drop();
 //Drinks.collection.drop();
 
+User.collection.drop();
+
 User.create([
     {
         username: "Kike",
@@ -26,7 +28,7 @@ User.create([
         password: bcrypt.hashSync("1234", salt),
         date: new Date,
         typeDrink: "ron",
-        city: "Zamora"
+        city: "Zamora",
     },
     {
         username: "Diego",
@@ -47,20 +49,32 @@ User.create([
     }
 ])
 
+Places.collection.drop();
+
 Places.create([
     {
         name: "New Garamond",
         zone: "Chamberí",
         city: "Madrid",
-        capacity: "big"
+        capacity: "big",
+        location:{
+            type: "Point",
+            coordinates:[40.4244242,-3.6783751]
+        }
     },
     {
         name: "Vía Lactea",
         zone: "Nuevos Ministerios",
         city: "Barcelona",
-        capacity: "small"
+        capacity: "small",
+        location:{
+            type: "Point",
+            coordinates:[40.4231555,-3.6870985]
+        }
     }
 ])
+
+Drinks.collection.drop();
 
 Drinks.create([
     {

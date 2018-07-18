@@ -1,32 +1,43 @@
-<h2>New Bar</h2>
+<h2>
+
+  New Bar</h2>
 
 <form action="/bars/add" method="POST" id="form-container">
-  <label for="name">Bar</label>
+  <label for="name">Bar:</label>
   <input id="name" type="text" name="name" placeholder="Name of Bar">
 
-  <br><br>
-
+  <br>
+  <br>
   <label for="zone">Zone</label>
   <input id="zone" type="zone" name="zone" placeholder="Zone">
   <br>
   <label for="city">City</label>
-  <input id="city" type="city" name="city" placeholder="City">
+  <input id="find" type="button" value="find">
+  <input id="geocomplete" type="text" placeholder="Type in an address" value="111 Broadway, New York, NY" autocomplete="off">
   <br>
-   <label for="comments">Comments</label>
+  <label for="comments">Comments</label>
   <input id="comments" type="comments" name="comments" placeholder="Comments">
   <br>
-   <label for="capacity">Capacity</label>
-  <input id="capacity" type="capacity" name="capacity" placeholder="capacity">
-  <br>
+<input name="lat" type="text" value="">
+<input name="lng" type="text" value="">
 
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
+  <label for="capacity">Capacity</label>
+  <input id="capacity" type="capacity" name="capacity" placeholder="capacity">
+  <br> {{#if message }}
+  <div class="error-message">{{ message }}</div>
   {{/if}}
 
-  <br><br>
+  <br>
+  <br>
 
   <button>Create Bar</button>
 
   </p>
 </form>
+</div>
 
+<div id="map" style="height:500px"></div>
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyClr_fVK41OBJxuab_HEI3I30pcijqHB7E"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="/javascripts/jquery.geocomplete.js"></script>
+<script src='/javascripts/script.js'></script>

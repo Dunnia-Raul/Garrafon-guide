@@ -5,18 +5,18 @@ const placeSchema = new Schema({
     name: String,
     zone: String,
     city: String,
-
-    capacity: { type: String, enum: ["small", "medium", "big"], default: "medium" }
-}, {
+    capacity: { type: String, enum: ["small", "medium", "big"], default: "medium" },
+    location: {
+        type: {
+            type: String
+        },
+        coordinates: [Number]
+    },
+},
+    {
         timestamps: {
             createdAt: 'created_at',
             updatedAt: 'updated_at'
-        },
-        location: {
-            type: {
-                type: String
-            },
-            coordinates: [Number]
         }
     });
 

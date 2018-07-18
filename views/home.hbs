@@ -3,8 +3,8 @@
 
 <head>
     <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGKIR1qG0f2w-2orTPffHRyXFTWkbbYp0"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
 <h1>Vista principal</h1>
@@ -13,27 +13,29 @@
     <script>
         window.placesAux = {{{ placesAux }}};
     </script>
-    <div id="map" style="height:500px"></div>
-    <script src='/javascripts/script.js'></script>
     <a href="/auth/logout">Logout</a>
+    <a href="/bars/add">Add new Bar</a>
+
+    <h1>List Bars</h1>
+    <div class="Bars">
+        {{#each places}}
+        <h2>{{name}}</h2>
+        <ul>
+            <li>{{zone}}</li>
+            <li>{{city}}</li>
+            <li>{{comments}}</li>
+            <li>{{capacity}}</li>
+        </ul>
+
+        <a href="/add/drinks">Add drinks</a>
+        <a href="/add/comments/{{_id}}">----Add Comments</a>
+        {{/each}}
+    </div>
+
+    <div id="map" style="height:500px"></div>
+
+    <script src='/javascripts/script.js'></script>
 
 </body>
 
 </html>
-<a href="/auth/logout">Logout</a>
-<a href="/bars/add">Add new Bar</a>
-
-<h1>List Bars</h1>
-<div class="Bars">
-  {{#each places}}
-  <h2>{{name}}</h2>
-  <ul>
-    <li>{{zone}}</li> 
-    <li>{{city}}</li> 
-    <li>{{comments}}</li> 
-    <li>{{capacity}}</li> 
-  </ul>
-
-  <a href="/add/drinks">Add drinks</a><a href="/add/comments/{{_id}}">----Add Comments</a>
-  {{/each}}
-</div>
