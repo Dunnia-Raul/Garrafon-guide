@@ -54,7 +54,7 @@ router.post("/bars/add", (req, res,next)=>{
   new Places ({name,zone,city,comments,capacity})
   .save()
   .then (place=>{
-    //console.log("añade")
+    console.log("añade")
     res.redirect('/home')
   });
 });
@@ -63,18 +63,48 @@ router.post("/bars/add", (req, res,next)=>{
 router.get('/bars/:id', (req, res, next) => {
   Places.findById(req.params.id)
     .then( (place) => {
-      res.render('detailsBar', place);
+    Comments.find({place: req.params.id })
+    .populate("garrafon")
+    .populate("creator")
+    .then((comments)=>{
+      const data={
+        place,
+        comments
+      }
+      console.log(data.comments)
+      res.render('detailsBar', data); 
+    })
+    
     })
     .catch( (err) => {console.log(err)});
 });
 
-router.get("/comments/:id", (req, res, next) => {
+router.get("bars/:id/newComment", (req, res, next) => {
  Places.findById(req.params.id)
     .then((place) => {
       res.render('newComment', {place});
     });
   
 });
+
+/*router.post("/bars/:id/newComment", (req, res, next) => {
+const {content}=req.body
+new Comment({content})
+.save()
+     .then((comment) => {
+       res.render('/newComment', {place});
+     });
+   
+ });*/
+
+//  Drinks.find()
+//       .then((drinks)=> {
+//       const data = {
+//         drinks,
+//         place    
+//       }
+//       res.render('detailsBar', data);
+ 
 
 
 

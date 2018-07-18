@@ -5,7 +5,7 @@ const commentSchema = new Schema({
     place: {type:Schema.Types.ObjectId, ref:'Place'},
     creator: {type:Schema.Types.ObjectId, ref:'User'},
     comments: String,
-    garrafon: [{type:Schema.Types.ObjectId, ref:'Drink'}]
+    garrafon: {type:Schema.Types.ObjectId, ref:'Drink'}
 
 }, {
         timestamps: {

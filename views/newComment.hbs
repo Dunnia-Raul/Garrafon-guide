@@ -1,11 +1,13 @@
 <div class="container">
   
-    <form action="/comments/{{_id}}/newComment" method="post">
+    <form action="/bars/{{_id}}/newComment" method="post">
     <div class="content">
       
       <label for="content">Comment the Bar {{name}}:</label>
       <select name="garrafon" id="">
-        <option value=""></option>
+       {{#each drinks}}
+       <option value="{{_id}}">{{type}} {{mark}}</option>
+       {{/each}}
       </select>
       <textarea rows="6" name="content" placeholder="Enter your Comment" required></textarea>
     </div>

@@ -7,12 +7,12 @@ const placeSchema = new Schema(
 		zone: String,
 		city: String,
 		capacity: { type: String, enum: [ 'small', 'medium', 'big' ], default: 'medium' },
-		location: {
-			type: {
-				type: String
-			},
-			coordinates: [ Number ]
-		}
+		// location: {
+		// 	type: {
+		// 		type: String
+		// 	},
+		// 	coordinates: [ Number ]
+		// }
 	},
 	{
 		timestamps: {
