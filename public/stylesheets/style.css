@@ -249,6 +249,9 @@ body {
 .detailsBar {
   color: white; }
 
+.containerfooter {
+  background-color: white; }
+
 /** =====================
 * Responsive
 ========================*/
@@ -263,7 +266,8 @@ body {
     width: 320px; } }
 
 .conthome {
-  padding-top: 60px; }
+  padding-top: 60px;
+  background-color: white; }
 
 /***login***/
 body {
