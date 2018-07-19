@@ -13,7 +13,7 @@ router.get('/', (req, res, next) => {
 	res.render('index');
 });
 
-
+//Login
 router.get("/home", ensureLoggedIn("/auth/login"), (req, res) => {
   User.find({}).then(users => {
     if (req.user.role.includes("admin")) {
@@ -40,6 +40,7 @@ router.get("/bars/add", (req, res, next) => {
   res.render("add");
 })
 
+//Add Bars
 router.post("/bars/add", (req, res, next) => {
   const { name, zone, city, comments, capacity } = req.body;
   let location = {
@@ -57,6 +58,8 @@ router.post("/bars/add", (req, res, next) => {
     })
   
 })
+
+// Delete only for user
 router.get("/delete/:id", (req, res) => {
   User.findByIdAndRemove(req.params.id)
     .then(() => {
@@ -79,7 +82,7 @@ router.get('/bars/:id', (req, res, next) => {
 					comments
 				};
 				console.log(data.comments);
-				res.render('detailsBar', data);
+				res.render('detailsBar', data );
 			});
 		})
 		.catch((err) => {
@@ -87,6 +90,19 @@ router.get('/bars/:id', (req, res, next) => {
 		});
 });
 
+// router.get("/bars/:id", (req, res, next) => {
+//   Place.findById(req.params.id)
+//   .then(places => {
+//     res.render("detailsBar", {
+//       places: JSON.stringify(places)
+//     });
+//   })
+//   .catch(err => {
+//     next(err);
+//   })
+// });
+
+//New comment
 router.get('/comments/:id/newComment', (req, res, next) => {
 	Places.findById(req.params.id).then((place) => {
     console.log(place)
@@ -101,6 +117,7 @@ router.get('/comments/:id/newComment', (req, res, next) => {
 	});
 });
 
+//New comment
 router.post('/comments/:id/newComment', (req, res, next) => {
   console.log('req.user')
   console.log(req.user)
