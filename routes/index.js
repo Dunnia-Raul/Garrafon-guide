@@ -6,11 +6,14 @@ const { sendMail } = require('../mailing/sendMail');
 const Drinks = require('../models/Drinks');
 const Places = require('../models/Places');
 const Comments = require('../models/Comments');
-//const photos=[];
+
+const photos=["bar1.jpg","bar2.jpg","bar3.jpg","bar4.jpg","bar5.jpg","bar6.jpg","bar7.jpg","bar8.jpg"];
+
+
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-	res.render('index');
+	res.render('auth/login');
 });
 
 //Login
@@ -47,7 +50,11 @@ router.post("/bars/add", (req, res, next) => {
     type : 'Point',
     coordinates: [Number(req.body.lat), Number(req.body.lng)]
   }
-  const newPlace = new Places({ name, zone, city, comments, capacity, location })
+
+  let photo='./images/'+photos[Math.floor(Math.random() * photos.length)];
+  console.log(photos)
+  console.log(photo)
+  const newPlace = new Places({ name, zone, city, comments, capacity, location ,photo})
   newPlace.save()
     .then(place => {
       res.redirect('/home')

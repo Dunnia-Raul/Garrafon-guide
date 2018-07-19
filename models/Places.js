@@ -12,6 +12,7 @@ const placeSchema = new Schema({
         },
         coordinates: [Number]
     },
+    photo: String
 },
     {
         timestamps: {
