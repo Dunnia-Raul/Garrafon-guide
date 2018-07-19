@@ -4,41 +4,172 @@
 <head>
     <title>{{title}}</title>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGKIR1qG0f2w-2orTPffHRyXFTWkbbYp0"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
-<h1>Vista principal</h1>
 <header>
-  <a href="/auth/logout">Logout</a>
-<a href="/bars/add">Add new Bar</a>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">LOGO</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/bars/add">Add new Bar
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/auth/logout">Logout</a>
+                    </li </ul>
+            </div>
+        </div>
+    </nav>
+
+    {{!--
+    <a href="/auth/logout">Logout</a>
+    <a href="/bars/add">Add new Bar</a> --}}
 </header>
 
 <body>
-  
-    <h1>List Bars</h1>
-    <div class="Bars">
-        {{#each places}}
-        <h2>{{name}}</h2>
-        <ul>
-            <li>Imagen algun dia</li>
-            <li>{{zone}}</li>
-            <li>{{city}}</li>
-            {{#each commentes}}
-            <li>{{comments}}</li>
-            {{/each}}
-            <li>{{capacity}}</li>
-    
-        </ul>
-        <a href="/bars/{{_id}}">Details</a>
-        {{/each}}
-    </div>
-   
-    <div id="map" style="height:500px"></div>
-    <script>
-        window.placesAux = {{{ places }}};
-    </script>
+
+    <!-- Container -->
+    <section class="places">
+
+        <div class="row">
+            <!-- Column -->
+            <div class="col-md-12 d-flex align-items-stretch">
+                <!--Card-->
+                {{#each places}}
+                <div class="card">
+                    <!--Card image-->
+                    <div class="view overlay">
+                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img%20(132).jpg" class="card-img-top" alt="">
+                        <a href="#">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+
+                    <!--Card content-->
+                    <div class="card-body">
+                        <!--Title-->
+                        <h4 class="card-title">{{name}}</h4>
+                        <!--Text-->
+                        <p class="card-text">
+                            <p>{{zone}}</p>
+                            <p>{{city}} </p>
+                            <p>{{#each commentes}}
+                                <li>{{comments}}</li>
+                                {{/each}}
+                            </p>
+                            <p>{{capacity}}</p>
+                            <a href="/bars/{{_id}}" class="btn btn-outline-dark">Details</a>
+
+                    </div>
+
+                </div>
+                {{/each}}
+            </div>
+
+        </div>
+    </section>
+
+    <section class="map">
+        <div id="map" style="height:500px"></div>
+        <script>
+            window.placesAux = {{{places}}};
+        </script>
+    </section>
     <script src='/javascripts/script.js'></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+
 
 </body>
+<footer>
+    <!-- Footer -->
+    <footer class="page-footer font-small unique-color-dark">
+
+        <div style="background-color: #6351ce;">
+            <div class="container">
+
+                <div class="row py-4 d-flex align-items-center">
+
+                    <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                        <h6 class="mb-0">Get connected with us on social networks!</h6>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container text-center text-md-left mt-5">
+
+
+            <div class="row mt-3">
+
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+
+                    <!-- Content-->
+                    <h6 class="text-uppercase font-weight-bold">Garafon Guide</h6>
+                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur
+                        adipisicing elit.</p>
+
+                </div>
+
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase font-weight-bold">Products</h6>
+                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>
+                        <a href="#!">MDBootstrap</a>
+                    </p>
+
+                </div>
+
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+                    <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>
+                        <a href="#!">Your Account</a>
+                    </p>
+
+                </div>
+
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+                    <h6 class="text-uppercase font-weight-bold">Contact</h6>
+                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>
+                        <i class="fa fa-home mr-3"></i> New York, NY 10012, US</p>
+                    <p>
+                        <i class="fa fa-envelope mr-3"></i> info@example.com</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer-copyright text-center py-3">© 2018 Copyright:
+            <a href="/"> GarrafonGuid3</a>
+        </div>
+
+    </footer>
+
+</footer>
 
 </html>
