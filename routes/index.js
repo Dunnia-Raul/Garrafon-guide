@@ -6,6 +6,7 @@ const { sendMail } = require('../mailing/sendMail');
 const Drinks = require('../models/Drinks');
 const Places = require('../models/Places');
 const Comments = require('../models/Comments');
+//const photos=[];
 
 /* GET home page */
 router.get('/', (req, res, next) => {
