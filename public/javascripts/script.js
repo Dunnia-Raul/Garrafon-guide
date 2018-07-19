@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   const map = new google.maps.Map(
     document.getElementById('map'), {
-      zoom: 15,
+      zoom: 16,
       center: madrid
     }
   );
@@ -23,47 +23,73 @@ document.addEventListener('DOMContentLoaded', () => {
   // });
 
 
-  $(function(){
-        
+  $(function () {
+
     var options = {
       map: "#map",
       location: "Madrid"
     };
-    
+
     $("#geocomplete").geocomplete(options);
-    
+
   });
 
-  
 
-  $.log = function(message){
+
+  $.log = function (message) {
     var $logger = $("#logger");
-    $logger.html($logger.html() + "\n * " + message );
+    $logger.html($logger.html() + "\n * " + message);
   }
 
-
-  $(function(){
-    $("#geocomplete").geocomplete({
-      map: "#map",
-      details: "form ",
-      markerOptions: {
-        draggable: true
-      }
-    });
-
-    $("#geocomplete").bind("geocode:click", function(event, latLng){
-      $("input[name=lat]").val(latLng.lat());
-      $("input[name=lng]").val(latLng.lng());
-      $("#reset").show();
-    });
+    $(function(){
+      $("#geocomplete").geocomplete({
+        map: "#map",
+        details: "form ",
+        markerOptions: {
+          draggable: true
+        }
+      });
+      
+      $("#geocomplete").bind("geocode:dragged", function(event, latLng){
+        $("input[name=lat]").val(latLng.lat());
+        $("input[name=lng]").val(latLng.lng());
+        $("#reset").show();
+      });
+      
+      
+      $("#reset").click(function(){
+        $("#geocomplete").geocomplete("resetMarker");
+        $("#reset").hide();
+        return false;
+      });
+    
 
     $("#find").click(function () {
       $("#geocomplete").trigger("geocode");
     });
 
-    
+
 
   });
+
+  // $('#map').click(function() {
+  //   const lat = Number($("input[name=lat]").val());
+  //   const lng = Number($("input[name=lng]").val());
+
+  //   const center = {
+  //       lat,
+  //       lng
+  //   }
+
+  //   console.log(center)
+
+  //   const marker = new google.maps.Marker({
+  //       position: center,
+  //       map: map,
+  //       title: "title"
+  //   })
+  //   marker.setMap(map)
+  // });
 
 
 

@@ -168,8 +168,7 @@
       google.maps.event.addListener(
         this.marker,
         'dragend',
-        $.proxy(this.markerDragged, this),
-        $.proxy(this.markerClicked, this)
+        $.proxy(this.markerDragged, this)
       );
     },
 
@@ -190,7 +189,7 @@
       if (this.options.country){
         options.componentRestrictions = {country: this.options.country};
       }
-      
+
       this.autocomplete = new google.maps.places.Autocomplete(
         this.input, options
       );
@@ -511,9 +510,7 @@
     markerDragged: function(event){
       this.trigger("geocode:dragged", event.latLng);
     },
-    markerClicked: function(event){
-      this.trigger("geocode:click", event.latLng);
-    },
+
     mapClicked: function(event) {
         this.trigger("geocode:click", event.latLng);
     },
