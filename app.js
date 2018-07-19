@@ -14,6 +14,7 @@ const path = require('path');
 const session = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash = require("connect-flash");
+const moment = require("moment");
 
 const dbURL = process.env.DBURL;
 
@@ -61,6 +62,15 @@ hbs.registerHelper('ifUndefined', (value, options) => {
     return options.fn(this);
   }
 });
+
+
+//moment
+hbs.registerHelper('list', function(items) {
+  console.log(moment().startOf(items).fromNow());
+    return  moment(moment(items).format('YYYY-MM-DD'), "YYYY/MM/DD").fromNow();
+    
+  
+  });
 
 
 // default value for title local
