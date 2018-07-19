@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   const map = new google.maps.Map(
     document.getElementById('map'), {
-      zoom: 16,
+      zoom: 20,
       center: madrid
     }
   );
@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
   //   map: map,
   //   title: "I'm here"
   // });
+
+  // Template.find.onRendered(function() { this.autorun(function () { if (GoogleMaps.loaded()) { $("#geolocater").geocomplete({ details: "form", detailsAttribute: "data-geo", map:".map", mapOptions: { mapTypeControlOptions: { mapTypeIds:"ROADMAP" }, streetViewControl: false, }, markerOptions: { draggable: false } }).bind("geocode:result", function(event, result){ var map = $("#geolocater").geocomplete("map"); map.setZoom(15); }); } }); });
+
 
 
   $(function () {

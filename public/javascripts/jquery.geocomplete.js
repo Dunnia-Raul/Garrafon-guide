@@ -49,16 +49,16 @@
     location: false,
 
     mapOptions: {
-      zoom: 14,
+      zoom: 20,
       scrollwheel: false,
       mapTypeId: "roadmap"
     },
 
     markerOptions: {
-      draggable: false
+      draggable: true
     },
 
-    maxZoom: 16,
+    maxZoom: 20,
     types: ['geocode'],
     blur: false,
     geocodeAfterResult: false,
