@@ -48,6 +48,7 @@ User.create([
         role: "admin"
     }
 ])
+.then (()=> console.log('users created'))
 
 Places.collection.drop();
 
@@ -56,7 +57,7 @@ Places.create([
         name: "New Garamond",
         zone: "Chamberi",
         city: "Madrid",
-        capacity: "big",
+        capacity: "Big",
         location:{
             type: "Point",
             coordinates:[40.4620161,-3.6975777,15.71]
@@ -67,7 +68,7 @@ Places.create([
         name: "Via Lactea",
         zone: "Nuevos Ministerios",
         city: "Madrid",
-        capacity: "small",
+        capacity: "Small",
         location:{
             type: "Point",
             coordinates:[40.42688,-3.7069845,14.94]
@@ -79,7 +80,7 @@ Places.create([
         name: "Kapital",
         zone: "Barrio de las letras",
         city: "Madrid",
-        capacity: "big",
+        capacity: "Big",
         location:{
             type: "Point",
             coordinates:[40.4097802,-3.6953578,17]
@@ -90,7 +91,7 @@ Places.create([
         name: "Café Berlín",
         zone: "Nuevos Ministerios",
         city: "Madrid",
-        capacity: "small",
+        capacity: "Small",
         location:{
             type: "Point",
             coordinates:[40.4195885,-3.7101317,17]
@@ -101,7 +102,7 @@ Places.create([
         name: "Joy Eslava",
         zone: "sol",
         city: "Madrid",
-        capacity: "small",
+        capacity: "Small",
         location:{
             type: "Point",
             coordinates:[40.4171574,-3.7087509,17]
