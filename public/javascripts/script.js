@@ -67,16 +67,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  // window.placesAux.forEach(place => {
-  //   new google.maps.Marker({
-  //     position: {
-  //       lat: place.location.coordinates[0],
-  //       lng: place.location.coordinates[1]
-  //     },
-  //     map: map,
-  //     title: `${place.name} - ${place.zone}`
-  //   });
-  // })
+  window.placesAux.forEach(place => {
+    new google.maps.Marker({
+      position: {
+        lat: place.location.coordinates[0],
+        lng: place.location.coordinates[1]
+      },
+      map: map,
+      title: `${place.name} - ${place.zone}`
+    });
+  })
 
 
   // map.addListener("click", function (event) {

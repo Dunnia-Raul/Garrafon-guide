@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#">LOGO</a>
+        <a class="navbar-brand"></a>
+        <a>LOGO</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -8,142 +9,101 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/bars/add">Add new Bar
-                        <span class="sr-only">(current)</span>
+                    <a class="nav-link" href="/comments/{{place._id}}/newComment">Add comment</a>
+                    <span class="sr-only">(current)</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/auth/logout">Logout</a>
-                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/bars/add">Add Bar
+                        <span class="sr-only">(current)</span>
+                    </a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home">Principal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/auth/logout">Logout</a>
+                    </li>
             </ul>
         </div>
     </div>
 </nav>
+<div class="container-fluid text-center">
+    <div class="row content">
+
+        {{!--
+        <div class="col-sm-10 text-left">
+            <h1>Welcome</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+                id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <hr>
+        </div> --}} {{!--
+        <div class="col-sm-2 sidenav">
+            <div class="well">
+                <a href="/comments/{{place._id}}/newComment" class="btn btn-outline-dark">Add new comment</a>
+            </div>
+            <div class="well">
+                <a href="/home" class="btn btn-outline-dark">Principal</a>
+            </div>
+        </div> --}}
+    </div>
+</div>
+
 <div class="comments-container">
     <h1>Comentarios
     </h1>
-
+    {{#each comments}}
     <ul id="comments-list" class="comments-list">
         <li>
             <div class="comment-main-level">
                 <!-- Avatar -->
                 <div class="comment-avatar">
+                    <img src="{{garrafon.photo}}" alt="" height="100" width="100">
                 </div>
                 <!-- Contenedor del Comentario -->
                 <div class="comment-box">
                     <div class="comment-head">
                         <h6 class="comment-name by-author">
+                            {{creator.username}}
                         </h6>
-                        <span>hace 20 minutos</span>
+                        {{#list updated_ad}}{{/list}}
                         <i class="fa fa-reply"></i>
                         <i class="fa fa-heart"></i>
                     </div>
                     <div class="comment-content">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio,
-                        sapiente distinctio illo?
-                    </div>
-                </div>
-            </div>
-            <!-- Respuestas de los comentarios -->
-            <ul class="comments-list reply-list">
-                <li>
-                    <!-- Avatar -->
-                    <div class="comment-avatar">
-                    </div>
-                    <!-- Contenedor del Comentario -->
-                    <div class="comment-box">
-                        <div class="comment-head">
-                            <h6 class="comment-name">
-                            </h6>
-                            <span>hace 10 minutos</span>
-                            <i class="fa fa-reply"></i>
-                            <i class="fa fa-heart"></i>
-                        </div>
-                        <div class="comment-content">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio,
-                            sapiente distinctio illo?
-                        </div>
-                    </div>
-                </li>
-
-                <li>
-                    <!-- Avatar -->
-                    <div class="comment-avatar">
-                    </div>
-                    <!-- Contenedor del Comentario -->
-                    <div class="comment-box">
-                        <div class="comment-head">
-                            <h6 class="comment-name by-author">
-                            </h6>
-                            <span>hace 10 minutos</span>
-                            <i class="fa fa-reply"></i>
-                            <i class="fa fa-heart"></i>
-                        </div>
-                        <div class="comment-content">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio,
-                            sapiente distinctio illo?
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </li>
-
-        <li>
-            <div class="comment-main-level">
-                <!-- Avatar -->
-                <div class="comment-avatar">
-                </div>
-                <!-- Contenedor del Comentario -->
-                <div class="comment-box">
-                    <div class="comment-head">
-                        <h6 class="comment-name">
-                        </h6>
-                        <span>hace 10 minutos</span>
-                        <i class="fa fa-reply"></i>
-                        <i class="fa fa-heart"></i>
-                    </div>
-                    <div class="comment-content">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio,
-                        sapiente distinctio illo?
+                        {{creator.username}} {{comments}}
                     </div>
                 </div>
             </div>
         </li>
     </ul>
+    {{/each}}
 </div>
 <div class="detailsBar">
     <div>
         <h2>{{place.name}}</h2>
-        <p>{{pplace.zone}}</p>
+        <p>{{place.zone}}</p>
         <p>{{place.city}}</p>
         <p>{{place.capacity}}</p>
     </div>
-    <div>
-        <h3> Lista comments</h3>
-        {{#each comments}}
+    {{!--
+    <div> --}} {{!--
+        <h3> Lista comments</h3> --}} {{!-- {{#each comments}}
 
         <li>{{creator.username}}</li>
         <li>{{comments}}</li>
-        <img src="{{garrafon.photo}}" alt="" height="100" width="100"> {{/each}}
-    </div>
+        <img src="{{garrafon.photo}}" alt="" height="100" width="100"> {{/each}} --}} {{!-- </div> --}}
     <div>
         {{!-- {{#each drinks}} Bebidas
         <li>{{photo}}</li>
         {{/each}} --}}
     </div>
-
-
-
-    <a href="/comments/{{place._id}}/newComment">Add new comment</a>
-    <a href="/home">Principal</a>
-
 </div>
 <div id="map" style="height:500px" , "width:100px"></div>
 {{!-- {{#if places}}
 <script>
     window.places = {{ { places } }};
 </script> {{/if}} --}}
-<script src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyClr_fVK41OBJxuab_HEI3I30pcijqHB7E"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="/javascripts/jquery.geocomplete.js"></script>
-<script src='/javascripts/script.js'></script>
+</head>
