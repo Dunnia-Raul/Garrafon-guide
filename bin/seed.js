@@ -60,7 +60,8 @@ Places.create([
         location:{
             type: "Point",
             coordinates:[40.4620161,-3.6975777,15.71]
-        }
+        },
+        photo: "./images/bar3.jpg"
     },
     {
         name: "Via Lactea",
@@ -70,7 +71,8 @@ Places.create([
         location:{
             type: "Point",
             coordinates:[40.42688,-3.7069845,14.94]
-        }
+        },
+        photo: "./images/bar1.jpg"
     },
 
     {
@@ -81,7 +83,8 @@ Places.create([
         location:{
             type: "Point",
             coordinates:[40.4097802,-3.6953578,17]
-        }
+        },
+        photo: "./images/bar5.jpg"
     },
     {
         name: "Café Berlín",
@@ -91,7 +94,8 @@ Places.create([
         location:{
             type: "Point",
             coordinates:[40.4195885,-3.7101317,17]
-        }
+        },
+        photo: "./images/bar8.jpg"
     },
     {
         name: "Joy Eslava",
@@ -101,7 +105,8 @@ Places.create([
         location:{
             type: "Point",
             coordinates:[40.4171574,-3.7087509,17]
-        }
+        },
+        photo: "./images/bar3.jpg"
     }
 ])
 
