@@ -301,12 +301,44 @@ background-color: white;
  .reply-list .comment-box {
    width: 320px;
  }
-}
+
 .conthome{
-padding-top:60px;
+padding-top:20px;
 background-color: white;
 }
+
+}
+
+#add {
+    padding-top: 20px;
+}
+.shadow-textarea textarea.form-control::placeholder {
+    font-weight: 300;
+}
+.shadow-textarea textarea.form-control {
+    padding-left: 0.8rem;
+}
+
+.contentnewcomment {
+color:white;
+padding-top: 60px;
+}
+
+ #add label{
+color:white;
+font-size: 1.2em;
+ }
+.cardcont{
+    
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+ .cardalig{
+     margin: 0 auto;
+ }
 /***login***/
+
 body
 {
     background: url('../images/background.jpg') fixed;
