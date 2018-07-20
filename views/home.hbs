@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">GUIDE</a>
+            <a class="navbar-brand" href="#">Hola {{user.username}}, ¿Qué tal la resaca?</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -26,16 +26,16 @@
         <div class="row">
     
             {{#each places}}
-            <div class="card col-md-4">
+            <div class="card col-md-4 cardalig">
                 <!--Card image-->
-                <div class="view overlay">
+                <div class="view overlay cardcont">
                     <img src="{{photo}}" class="card-img-top" height="200" width="60">
     
                     <div class="mask rgba-white-slight"></div>
                     </a>
                 </div>
                 <!--Card content-->
-                <div class="card-body">
+                <div class="card-body center-block">
                     <!--Title-->
                     <h4 class="card-title">{{name}}</h4>
                     <!--Text-->
@@ -46,8 +46,8 @@
                             <li>{{comments}}</li>
                             {{/each}}
                         </p>
-                        <p>{{capacity}}</p>
-                        <a href="/bars/{{_id}}" class="btn btn-outline-dark">Details</a>
+                       
+                        <a href="/bars/{{_id}}" class="btn btn-outline-dark center-block">Details</a>
                 </div>
             </div>
             {{/each}}

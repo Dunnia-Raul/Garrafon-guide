@@ -1,18 +1,22 @@
-<div class="container">
-  
-    <form action="/comments/{{place._id}}/newComment" method="post">
-    <div class="content">
-      
-      <label>Comment the Bar {{place.name}}:</label>
-      <select name="garrafon" id="garrafon">
-       {{#each drinks}}
-       <option value="{{_id}}">{{type}} {{mark}}</option>
-       {{/each}}
+<div class="contentnewcomment">
+
+  <form action="/comments/{{place._id}}/newComment" method="post">
+    <div>
+
+      <h3>Comment the Bar {{place.name}}:</h3>
+      <select name="garrafon" id="garrafon" class="form-group">
+        {{#each drinks}}
+        <option value="{{_id}}">{{type}} {{mark}}</option>
+        {{/each}}
       </select>
-      <textarea rows="6" name="content" placeholder="Enter your Comment" required></textarea>
+
+      <div class="form-group shadow-textarea">
+       
+        <textarea class="form-control z-depth-1" name="content" rows="9" required placeholder="Write your comment here..."></textarea>
+      </div>
     </div>
-      <input type="submit" value="Submit">
+    <input type="submit" value="Submit" class="btn btn-secondary">
   </form>
-  </div>
+</div>
 
  

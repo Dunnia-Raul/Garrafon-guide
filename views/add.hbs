@@ -1,58 +1,76 @@
-<h2>
 
-  New Bar</h2>
+<div id="add">
 
-<form action="/bars/add" method="POST" id="form-container">
-  <label for="name">Bar:</label>
-  <input id="name" type="text" name="name" placeholder="Name of Bar">
+  <div class="container">
+    <div id="login-row" class="row justify-content-center align-items-center">
+      <div id="login-column" class="col-md-6">
+        <div class="login-box col-md-12">
+          <form action="/bars/add" method="POST" method="POST">
+            <h3 class="text-center text-info">Add new Bar</h3>
+            <div class="form-group">
+              <label for="name">Bar:</label>
+              <br>
+              <input id="name" type="text" name="name" class="form-control">
 
-  <br>
-  <br>
-  <label for="zone">Zone</label>
-  <select id="zone" name="zone">
-    <option value="Austrias">Austrias</option>
-    <option value="BLetras">Barrios de las Letras</option>
-    <option value="BSalamanca">Barrio Salamanca</option>
-    <option value="CasaCampo">Casa de CasaCampo</option>
-    <option value="Castellana">Castellana</option>
-    <option value="Chamberi">Chamberi</option>
-    <option value="Chueca">Chueca</option>
-    <option value="Sol">Sol-Gran Vía</option>
-    <option value="Latina">Latina</option>
-    <option value="Lavapies">Lavapiés</option>
-    <option value="Princesa">Princesa</option>
-    <option value="Sol">Sol</option>
+            </div>
+            <div class="form-group">
+              <label for="zone">Zone</label>
+              <select id="zone" name="zone" class="form-control">
+                <option value="Austrias">Austrias</option>
+                <option value="BLetras">Barrios de las Letras</option>
+                <option value="BSalamanca">Barrio Salamanca</option>
+                <option value="CasaCampo">Casa de CasaCampo</option>
+                <option value="Castellana">Castellana</option>
+                <option value="Chamberi">Chamberi</option>
+                <option value="Chueca">Chueca</option>
+                <option value="Sol">Sol-Gran Vía</option>
+                <option value="Latina">Latina</option>
+                <option value="Lavapies">Lavapiés</option>
+                <option value="Princesa">Princesa</option>
+                <option value="Sol">Sol</option>
 
-  </select>
-  <br>
-  <label for="city">City</label>
-  <input id="find" type="button" value="find">
-  <input id="geocomplete" type="text" name="city" placeholder="Type in an address" value="" autocomplete="off">
-  <br>
-  <label for="comments">Comments</label>
-  <input id="comments" type="comments" name="comments" placeholder="Comments">
-  <br>
-  <input name="lat" type="text" value="">
-  <input name="lng" type="text" value="">
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="city">City</label>
+              <input id="find" type="button" value="find">
+              <input id="geocomplete" type="text" name="city" placeholder="Type in an address" value="" autocomplete="off" class="form-control">
 
-  <select id="capacity" name="capacity">
-    <option value="small">Small</option>
-    <option value="Medium" selected>Medium</option>
-    <option value="Big">Big</option>
-  </select>
 
-   <br> {{#if message }}
-  <div class="error-message">{{ message }}</div>
-  {{/if}}
+            </div>
+            <div class="form-group">
+              <label for="comments">Comments</label>
+              <input id="comments" type="comments" name="comments" placeholder="Comments" class="form-control">
+            </div>
+              <div class="input-group form-group">
+           
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Lat-Long</span>
+                </div>
+                
+                <input name="lat" type="text" value="" class="form-control">
+                <input name="lng" type="text" value="" class="form-control">
+              </div>
 
-  <br>
-  <br>
 
-  <button>Create Bar</button>
+              <div class="form-group">
+                <select id="capacity" name="capacity" class="text-info">
+                  <option value="small">Small</option>
+                  <option value="Medium" selected>Medium</option>
+                  <option value="Big">Big</option>
+                </select>
+              </div>
+              <div class="form-group">
 
-  </p>
-</form>
-</div>
+                <input type="submit" name="submit" class="btn btn-info btn-md" value="Create Bar">
+              </div>
 
-<div id="map" ></div>
-{{!-- <script src="../javascripts/mapAdd.js"></script> --}}
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="map"></div>
