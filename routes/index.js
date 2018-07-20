@@ -52,8 +52,6 @@ router.post("/bars/add", (req, res, next) => {
   }
 
   let photo='./images/'+photos[Math.floor(Math.random() * photos.length)];
-  console.log(photos)
-  console.log(photo)
   const newPlace = new Places({ name, zone, city, comments, capacity, location ,photo})
   newPlace.save()
     .then(place => {
@@ -96,18 +94,6 @@ router.get('/bars/:id', (req, res, next) => {
 			console.log(err);
 		});
 });
-
-// router.get("/bars/:id", (req, res, next) => {
-//   Place.findById(req.params.id)
-//   .then(places => {
-//     res.render("detailsBar", {
-//       places: JSON.stringify(places)
-//     });
-//   })
-//   .catch(err => {
-//     next(err);
-//   })
-// });
 
 //New comment
 router.get('/comments/:id/newComment', (req, res, next) => {

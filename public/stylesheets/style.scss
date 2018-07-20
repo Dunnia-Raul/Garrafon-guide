@@ -275,7 +275,10 @@ body {
  border-radius: 3px;
 }
 .detailsBar{
-  color:white;
+  color:black;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
 }
 .containerfooter {
 background-color: white;

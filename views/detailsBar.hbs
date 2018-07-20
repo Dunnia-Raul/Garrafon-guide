@@ -54,7 +54,7 @@
                         <i class="fa fa-heart"></i>
                     </div>
                     <div class="comment-content">
-                        {{creator.username}} {{comments}}
+                           {{comments}}
                     </div>
                 </div>
             </div>
@@ -63,17 +63,25 @@
     {{/each}}
 </div>
 <div class="detailsBar">
-    <div>
-        <h2>{{place.name}}</h2>
-        <p>{{place.zone}}</p>
-        <p>{{place.city}}</p>
-        <p>{{place.capacity}}</p>
-    </div>
-   
+    <div class="card" style="width: 18rem;">
+  <div class="card-header">
+   Lugar: <h2> {{place.name}}</h2>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Zona: <h3>{{place.zone}}</h3></li>
+    <li class="list-group-item"><p>Ciudad: <h3>{{place.city}}</h3></li>
+    <li class="list-group-item"><p>Capacidad: <h3>{{place.capacity}}</h3></li>
+  </ul>
+</div>
     <div>
       
     </div>
 </div>
-<div id="map" ></div>
+ </section>
+    <section class="map">
+        <div id="map"></div>
+        <script>
+            window.placesAux={{{place}}};
+        </script>
+    </section>
 
-</head>

@@ -45,6 +45,8 @@
       <div class="tab-pane fade" id="list-bars" role="tabpanel" aria-labelledby="list-bars-list">
         {{#each places}}
         <h3>{{name}}</h3>
+        <img src="{{photo}}" class="card-img-top" height="200" width="100">
+
         <span>
           <a href="/delete/{{_id}}" class="btn btn btn-secondary">Delete</a>
         </span>
