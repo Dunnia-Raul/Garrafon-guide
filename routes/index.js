@@ -84,9 +84,10 @@ router.get('/bars/:id', (req, res, next) => {
 			Comments.find({ place: req.params.id }).populate('garrafon').populate('creator').then((comments) => {
 				const data = {
 					place,
-					comments
+          comments,
+          placeAux: JSON.stringify(place)
 				};
-				console.log(data.comments);
+				console.log(data.placeAux);
 				res.render('detailsBar', data );
 			});
 		})

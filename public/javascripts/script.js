@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   });
 
-
+  if (window.placesAux) {
   window.placesAux.forEach(place => {
     new google.maps.Marker({
       position: {
@@ -74,6 +74,21 @@ document.addEventListener('DOMContentLoaded', () => {
       title: `${place.name} - ${place.zone}`
     });
   })
+}
+
+if (window.placeAux) {
+  const placeOne = window.placeAux;
+  //window.placeAux.forEach(place => {
+    new google.maps.Marker({
+      position: {
+        lat: placeOne.location.coordinates[0],
+        lng: placeOne.location.coordinates[1]
+      },
+      map: map,
+      title: `${placeOne.name} - ${placeOne.zone}`
+    });
+  }
+  //})
 }, false);
 
 
